@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="kangan:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="com.kangnuo.war">
+      <element id="artifact" artifact-name="kangan:war exploded" />
+    </root>
+  </artifact>
+</component>
