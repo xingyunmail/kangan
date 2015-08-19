@@ -12,6 +12,25 @@ public class CustomerModel {
     private int status;
     private String insertDate;
 
+    private int limit;
+    private int startNum;
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+    public int getStartNum() {
+        return startNum;
+    }
+
+    public void setStartNum(int startNum) {
+        this.startNum = startNum;
+    }
+
     public String getCustId() {
         return custId;
     }
