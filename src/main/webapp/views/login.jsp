@@ -26,7 +26,7 @@
         <input type="text" id="userId" class="input-block-level" placeholder="用户名">
         <input type="password" id="password" class="input-block-level" placeholder="密码">
         <%--<label class="checkbox">
-            <input type="checkbox" value="remember-me"> 记住我
+            <input type="checkbox" value="remember-me"> 记住我哦
         </label>--%>
         <button class="btn btn-large btn-primary" type="submit" id="loginButton">登录</button>
     </form>
