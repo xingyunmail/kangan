@@ -22,7 +22,7 @@
 <div class="container">
 
     <form class="form-signin">
-        <h2 class="form-signin-heading">请登录</h2>
+        <h2 class="form-signin-heading">管理系统</h2>
         <input type="text" id="userId" class="input-block-level" placeholder="用户名">
         <input type="password" id="password" class="input-block-level" placeholder="密码">
         <%--<label class="checkbox">
