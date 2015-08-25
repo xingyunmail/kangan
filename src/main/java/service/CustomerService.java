@@ -9,5 +9,9 @@ import model.customer.CustomerModel;
 public interface CustomerService {
 
     Result getInfo(CustomerModel customerModel);
+    Result getCustomerList(CustomerModel customerModel);
+    Result deleteCustomer(String custId);
+    Result UpdateCustomer(CustomerModel customerModel);
+    Result insertCustomer(CustomerModel customerModel);
 
 }

@@ -36,6 +36,4 @@ public interface CustomerDao {
     @SelectProvider(type=CustomerDaoImpl.class,method="getCustomerCount")
     public List<CustomerModel> getCustomerCount(CustomerModel customerModel);
 
-
-
 }
