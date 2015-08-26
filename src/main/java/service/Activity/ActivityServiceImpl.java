@@ -80,7 +80,7 @@ public class ActivityServiceImpl implements ActivityService {
 //        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
 //        String insertDate = sdf.format(new Date());
 //        activityModel.setInsertDate(insertDate);
-        //如果活动ID 为空，新增信息 否则 编辑信息
+        //如果活动ID 为空，新增信息 否则 保存信息
         if (activityModel.getEditdiscountId().equals("") || activityModel.getEditdiscountId() == null) {
             int discountId_key = activityDao.addActivityModel(activityModel);
             if(discountId_key>0){

@@ -287,10 +287,10 @@ To change this template use File | Settings | File Templates.
             }
         });
 
-//编辑状态
+//保存状态
         var editDiscountID = $("#discountID").val();
         if (editDiscountID != '') {
-            $("#submit").html("编辑");
+            $("#submit").html("保存");
             $.ajax({
                 async: "false",
                 type: "POST",
@@ -526,7 +526,7 @@ To change this template use File | Settings | File Templates.
                     if (json.status = "success") {
                         $("input").val('');
                         if (editDiscountID!= '') {
-                            message("success","编辑成功！");
+                            message("success","保存成功！");
                         } else {
                             message("success","添加成功！");
                         }

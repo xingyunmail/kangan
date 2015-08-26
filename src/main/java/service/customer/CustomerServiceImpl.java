@@ -41,8 +41,10 @@ public class CustomerServiceImpl implements CustomerService {
 
         List<CustomerModel> customerModelList = customerDao.getCustomerList(customerModel);
         if (customerModelList.size() > 0) {
+            int num = customerDao.getCustomerCount(customerModel);
             result.setStatus(Status.success);
             result.setData(customerModelList);
+            result.setCount(num);
         } else {
             result.setStatus(Status.error);
         }
@@ -52,7 +54,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Result deleteCustomer(String custId) {
         Result result = new Result();
-        String isuc = customerDao.deleteCustomer(custId);
+        int isuc = customerDao.deleteCustomer(custId);
             result.setStatus(Status.success);
             result.setData(isuc);
            return result;
@@ -61,7 +63,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Result UpdateCustomer(CustomerModel customerModel) {
         Result result = new Result();
-        String isuc = customerDao.UpdateCustomer(customerModel);
+        int isuc = customerDao.UpdateCustomer(customerModel);
         result.setStatus(Status.success);
         result.setData(isuc);
         return result;
@@ -70,6 +72,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Result insertCustomer(CustomerModel customerModel) {
         Result result = new Result();
+        String custId = customerDao.getLastCustId();
+        System.out.println(Integer.parseInt(custId)+1);
+        customerModel.setCustId("0"+(Integer.parseInt(custId)+1));
+
         int isuc = customerDao.insertCustomer(customerModel);
         result.setStatus(Status.success);
         result.setData(isuc);

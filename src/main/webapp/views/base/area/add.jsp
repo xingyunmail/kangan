@@ -71,14 +71,14 @@ To change this template use File | Settings | File Templates.
 <script src="resources/js/dialog-min.js"></script>
 <script type="application/javascript">
     $(document).ready(function () {
-//编辑
+//保存
         getLineList();
 
         var lineId = $("#lineId2").val()
         var areaId = $("#areaId").val()
         if (areaId != '') {
-            console.log("---开始编辑----");
-            $("#addArea").html("编辑");
+            console.log("---开始保存----");
+            $("#addArea").html("保存");
             $.ajax({
                 async: "false",
                 type: "POST",
@@ -99,7 +99,7 @@ To change this template use File | Settings | File Templates.
         $("#addArea").click(function () {
             console.log("=================");
             if ($("#areaId").val() != '') {
-                submit(2);//编辑
+                submit(2);//保存
             } else {//新增
                 submit(1);
             }
@@ -161,10 +161,10 @@ To change this template use File | Settings | File Templates.
                 console.log(json);
                 if (json.status = "success") {
 
-                    alert("编辑成功");
+                    alert("保存成功");
                     document.getElementById("GoList").click();
                 } else {
-                    alert("编辑失败");
+                    alert("保存失败");
                 }
             });
         }

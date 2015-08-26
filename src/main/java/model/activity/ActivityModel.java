@@ -23,7 +23,7 @@ public class ActivityModel {
     private String quantity;
     private String batchprodId;     //批量产品ID
     private String batchGiftProdId;//批量赠品ID
-    private String editdiscountId;  //需要编辑的活动ID
+    private String editdiscountId;  //需要保存的活动ID
     private String priceId;          //价格ID
     private int giftNum;            //赠品数量
     private String priceIdGift;     //批量赠品价格ID

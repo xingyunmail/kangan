@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface CustomerDao {
 
-    @Select("select * from customer_info where custId=#{custId}")
+    @Select("select * from customer_info where custId=#{custId} order by custId desc")
     public List<CustomerModel> getInfo(CustomerModel customerModel);
 
     @Insert("insert into customer_info(custId,custName,phone,address,status) values(#{custId},#{custName},#{phone},#{address},#{status})")
@@ -25,15 +25,18 @@ public interface CustomerDao {
 
 
     @Delete("delete from customer_info where custId=#{custId}")
-    public String deleteCustomer(@Param("custId") String custId);
+    public int deleteCustomer(@Param("custId") String custId);
 
     @Update("update customer_info set custName=#{custName},phone=#{phone},address=#{address},status=#{status} where custId=#{custId}")
-    public String UpdateCustomer(CustomerModel customerModel);
+    public int UpdateCustomer(CustomerModel customerModel);
 
     @SelectProvider(type=CustomerDaoImpl.class,method="getCustomerList")
     public List<CustomerModel> getCustomerList(CustomerModel customerModel);
 
     @SelectProvider(type=CustomerDaoImpl.class,method="getCustomerCount")
-    public List<CustomerModel> getCustomerCount(CustomerModel customerModel);
+    public int getCustomerCount(CustomerModel customerModel);
+
+ @Select("select custId from customer_info ORDER BY custId desc LIMIT 1")
+    public String getLastCustId();
 
 }

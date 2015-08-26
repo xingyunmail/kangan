@@ -13,6 +13,12 @@ public class CustomerDaoImpl {
         if(!StringUtils.isEmpty(customerModel.getCustId())){
             sql += " and custId = "+customerModel.getCustId();
         }
+        if(!StringUtils.isEmpty(customerModel.getPhone())){
+            sql += " and phone like '%"+customerModel.getPhone()+"%' ";
+        }
+        if(!StringUtils.isEmpty(customerModel.getCustName())){
+            sql += " and custName like '%"+customerModel.getCustName()+"%' ";
+        }
         if (customerModel.getLimit() > 0) {
             sql += " limit " + (customerModel.getStartNum() - 1) * customerModel.getLimit() + "," + customerModel.getLimit();
         }
@@ -24,6 +30,12 @@ public class CustomerDaoImpl {
 
         if(!StringUtils.isEmpty(customerModel.getCustId())){
             sql += " and custId = "+customerModel.getCustId();
+        }
+        if(!StringUtils.isEmpty(customerModel.getPhone())){
+            sql += " and phone like '%"+customerModel.getPhone()+"%' ";
+        }
+        if(!StringUtils.isEmpty(customerModel.getCustName())){
+            sql += " and custName like '%"+customerModel.getCustName()+"%' ";
         }
 
         return sql;

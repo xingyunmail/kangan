@@ -1180,7 +1180,7 @@ function exchangeGift()
                             "<td>"+getDeliverRuleSelect("exchangeSelect_"+item.detailId ,item.deliverRules,true)+"</td>" +
                             "<td>" + item.beginDate + "</td>" +
                             "<td>" + item.endDate + "</td>" +
-                            "<td><div id='original_"+item.detailId+"'><span style='margin-left: 10px;'><a style='cursor: hand' href=\"javascript:editOldGift("+index+",'"+item.detailId+"')\">编辑</a></span></div><div style='display: none' id='haveModify_"+item.detailId+"'>已修改</div><div  style='display: none' id='haveExchange_"+item.detailId+"'>已更换</div></td></tr>");
+                            "<td><div id='original_"+item.detailId+"'><span style='margin-left: 10px;'><a style='cursor: hand' href=\"javascript:editOldGift("+index+",'"+item.detailId+"')\">保存</a></span></div><div style='display: none' id='haveModify_"+item.detailId+"'>已修改</div><div  style='display: none' id='haveExchange_"+item.detailId+"'>已更换</div></td></tr>");
                         }
                         else
                         {
@@ -1192,7 +1192,7 @@ function exchangeGift()
                             "<td>--</td>" +
                             "<td>--</td>" +
                             "<td>--</td>" +
-                            "<td><div id='original_"+item.detailId+"'><span style='margin-left: 10px;'><a style='cursor: hand' href=\"javascript:editOldGift("+index+",'"+item.detailId+"')\">编辑</a></span></div><div style='display: none' id='haveModify_"+item.detailId+"'>已修改</div><div  style='display: none' id='haveExchange_"+item.detailId+"'>已更换</div></td></tr>");
+                            "<td><div id='original_"+item.detailId+"'><span style='margin-left: 10px;'><a style='cursor: hand' href=\"javascript:editOldGift("+index+",'"+item.detailId+"')\">保存</a></span></div><div style='display: none' id='haveModify_"+item.detailId+"'>已修改</div><div  style='display: none' id='haveExchange_"+item.detailId+"'>已更换</div></td></tr>");
                         }
                     });
                     changeGiftDialog.content($("#exchangeGiftDiv"));
@@ -1254,7 +1254,7 @@ function showChangeGift()
 
 }
 
-//编辑原有数据
+//保存原有数据
 function editOldGift(index,detailid)
 {
     var editprod = oldGiftProds[index];
