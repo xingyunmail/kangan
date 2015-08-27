@@ -43,19 +43,26 @@
                 </div>
                 <div class="span6">
                     <div class="control-group">
-                        <label class="control-label" for="inputCustid">客户编号</label>
+                        <label class="control-label" for="inputCustid">模糊查询订奶用户信息</label>
 
                         <div class="controls">
-                            <input type="text" class="input-medium" id="inputCustid"><span
+                            <input type="text" data-provide="typeahead" class="input-medium" id="likeinfo"><span
                                 class="help-inline"></span>
                         </div>
                     </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputCustid">订奶用户编号</label>
 
+                        <div class="controls">
+                            <input type="text"  class="input-medium" id="inputCustid" disabled><span
+                                class="help-inline"></span>
+                        </div>
+                    </div>
                     <div class="control-group">
                         <label class="control-label" for="inputCustname">姓名</label>
 
                         <div class="controls">
-                            <input type="text" class="input-medium" id="inputCustname"><span
+                            <input type="text" class="input-medium" id="inputCustname" disabled><span
                                 class="help-inline"></span>
                         </div>
                     </div>
@@ -63,7 +70,7 @@
                         <label class="control-label" for="inputPhone">手机号</label>
 
                         <div class="controls">
-                            <input type="text" class="input-medium" id="inputPhone"><span
+                            <input type="text" class="input-medium" id="inputPhone" disabled><span
                                 class="help-inline"></span>
                         </div>
                     </div>
@@ -71,7 +78,7 @@
                         <label class="control-label" for="inputAddress">收货地址</label>
 
                         <div class="controls">
-                            <input type="text" class="input-large" id="inputAddress"><span
+                            <input type="text" class="input-large" id="inputAddress" disabled><span
                                 class="help-inline"></span>
                         </div>
                     </div>
@@ -187,7 +194,7 @@
 <link href="resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 <script src="resources/js/bootstrap-datetimepicker.min.js"></script>
 <script src="resources/js/bootstrap-datetimepicker.zh-CN.js"></script>
-
+<script src="resources/js/bootstrap-typeahead.js"></script>
 <script src="resources/js/util.js"></script>
 <script src="resources/js/order/add.js"></script>
 <script type="application/javascript">
@@ -206,13 +213,20 @@
         //初始化活动列表
         getDisCount();
 //        $("#inputOrderid").focus();
+        //初始化订奶用户列表
+        getCustomerList();
     });
 
 
 </script>
 <%--跳转管理--%>
 <script type="application/javascript">
-
+    //模糊查询
+    $("#likeinfo").bind("keypress", function (event) {
+        if (event.keyCode == "13") {
+            getProdInfoById();
+        }
+    });
     //订单Id
     $("#inputOrderid").bind("keypress", function (event) {
         if (event.keyCode == "13") {

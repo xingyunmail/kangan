@@ -137,6 +137,7 @@ To change this template use File | Settings | File Templates.
                     alert("添加成功");
                     $("#GoList").click();
                     //document.getElementById("GoList").click();
+                    loadPage('customer/toAdd');
                 } else {
                     alert("添加失败");
                 }
@@ -148,13 +149,15 @@ To change this template use File | Settings | File Templates.
                 url: "customer/updateCustomer",
                 data: params,
                 dataType: "json",
+                async:false,
                 success: function (json) {
                     console.log("------------------2---------------");
                     console.log(json);
                     if (json.status = "success") {
                         alert("编辑成功");
 //                    $("#GoList").click();
-//                    document.getElementById("GoList").click();
+                        loadPage('customer/toList');
+                   // document.getElementById("GoList").click();
                     } else {
                         alert("编辑失败");
                     }

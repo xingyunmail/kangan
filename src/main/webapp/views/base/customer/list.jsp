@@ -68,7 +68,7 @@
                         <span class="span12" id="pageDiv"></span>
                     </div>
                 </div>
-
+                    <a href="javaScript:loadPage('customer/toList')" id="GoList" style="display: block">跳转到List</a>
 <%--时间控件--%>
 <link href="resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 <script src="resources/js/bootstrap-datetimepicker.min.js"></script>
@@ -82,6 +82,7 @@
 //        getListJson("prodType=2&startNum="+startNum+"&limit"+limit);
 //        getLineList();//获取线路列表
         initInfo();
+
         //搜索
         $("#submit").on("click", function () {
             initInfo();
@@ -102,27 +103,34 @@
     //获取列表
     function getListJson(v) {
         var resultN;
-        $.post("customer/getCustomerList", v, function (json) {
-            if (json.status == "success") {
-                console.log(json.data);
-                $.each(json.data, function (index, item) {
-                    $(".table tbody").html();
-                    resultN += "<tr><td>" + item.custId + "</td>" +
-                    "<td>" + item.custName + "</td>" +
-                    "<td>" + item.phone + "</td>" +
-                    "<td>" + item.address + "</td>" +
-                    "<td><a tabindex=\"-1\"  href=\"javaScript:loadPage('customer/edit?custId="+item.custId+"')\" id=\"edit\" >编辑<a>" +
-                    "&nbsp;<a href=\"javascript:void(0)\" onclick=\"javascript:deleteCustomer('"+item.custId+"')\">删除</a>" +
-                    "</tr>";
+        $.ajax({
+            async:false,
+            type: "POST",
+            url: "customer/getCustomerList",
+            data: v,
+            success: function (json) {
+                if (json.status == "success") {
+                    console.log(json.data);
+                    $.each(json.data, function (index, item) {
+                        $(".table tbody").html();
+                        resultN += "<tr><td>" + item.custId + "</td>" +
+                        "<td>" + item.custName + "</td>" +
+                        "<td>" + item.phone + "</td>" +
+                        "<td>" + item.address + "</td>" +
+                        "<td><a tabindex=\"-1\"  href=\"javaScript:loadPage('customer/edit?custId="+item.custId+"')\" id=\"edit\" >编辑<a>" +
+                        "&nbsp;<a href=\"javascript:void(0)\" onclick=\"javascript:deleteCustomer('"+item.custId+"')\">删除</a>" +
+                        "</tr>";
 
-                });
-                getPagination(json.count, startNum, limit);
+                    });
+                    getPagination(json.count, startNum, limit);
+                }
+                if (json.status == "noRecord") {
+                    resultN = "<tr><td colspan='8'>暂无记录<td><tr>";
+                }
+                $(".table tbody").html(resultN);
             }
-            if (json.status == "noRecord") {
-                resultN = "<tr><td colspan='8'>暂无记录<td><tr>";
-            }
-            $(".table tbody").html(resultN);
         });
+
     }
 
     //删除

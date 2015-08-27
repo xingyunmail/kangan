@@ -1,6 +1,53 @@
 /**
  * Created by scar on 15/5/26.
  */
+var customer = []
+////////////////////查询所有订奶用户//////////////////////////////////
+function getCustomerList(){
+    $.ajax(
+        {
+            url: "customer/getCustomerList",
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json",
+            success: function (json) {
+                if (json.status == "success") {
+                    //console.log(json.data);
+                    customer = json.data;
+                    var prodShowArray = [];
+                    $.each(customer, function (index, item) {
+                        var show = item.custId + "---" + item.custName+"----"+item.phone;
+                      //  console.log(show)
+                        var tmp = {
+                            'show': show, 'custId': item.custId, 'custName': item.custName
+                        }
+                       // console.log(tmp)
+                        prodShowArray.push(tmp);
+                    });
+                    $('#likeinfo').typeahead({
+                        source: prodShowArray,
+                        display: 'show'
+                    });
+                }
+            }
+        });
+}
+/**
+ * 获取订奶用户信息
+ */
+function getProdInfoById() {
+    var cust_ID = $("#likeinfo").val().split("---")[0];
+    $.each(customer, function (index, item) {
+        if (item.custId == cust_ID) {
+            $("#inputCustid").val(item.custId);
+            $("#inputCustname").val(item.custName);
+            $("#inputPhone").val(item.phone);
+            $("#inputAddress").val(item.address);
+            return false;
+        }
+    });
+}
+
 
 //获取活动列表
 function getDisCount() {

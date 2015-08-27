@@ -4,12 +4,7 @@ import DAO.*;
 import model.Result;
 import model.Status;
 import model.customer.CustomerModel;
-import model.dictionary.DictModel;
 import model.order.*;
-import model.order.OrderModel;
-import model.order.OrderDetialModel;
-import model.order.OrderModel;
-import model.order.ReturnMilkModel;
 import model.product.ProdModel;
 import model.user.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import service.OrderService;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -206,13 +200,15 @@ public class OrderServiceImpl implements OrderService {
             customerModel.setPhone(orderModel.getCustPhone());
             customerModel.setCustName(orderModel.getCustName());
             customerModel.setStatus(1);
-            int insertRow = customerDao.insertCustomer(customerModel);
-            if (insertRow == 1) {
-                System.out.println(customerModel.getCustId());
-                orderModel.setCustId(customerModel.getCustId());
-            } else {
-                return "customerError";
-            }
+
+            customerModel.setCustId(orderModel.getCustId());
+//            int insertRow = customerDao.insertCustomer(customerModel);
+//            if (insertRow == 1) {
+//                System.out.println(customerModel.getCustId());
+//                orderModel.setCustId(customerModel.getCustId());
+//            } else {
+//                return "customerError";
+//            }
         }
         orderModel.setAreaId(orderModel.getDeliverId().substring(0, 4));
         orderDao.addOrder(orderModel);
