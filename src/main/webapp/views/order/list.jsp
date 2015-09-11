@@ -1,11 +1,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: scar
-  Date: <input type="checkbox">5/4/30
-  Time: 下午<input type="checkbox">:36
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 
 
@@ -86,14 +79,7 @@
         <div class="row span12">
             <button class="btn order-btn" type="button" id="stopMilk" onclick="stopMilk()">停</button>
             <button class="btn order-btn" type="button" id="activeMilk" onclick="activeMilk()">启</button>
-            <button class="btn order-btn" type="button" onclick="transferMilk()">转</button>
-            <button class="btn order-btn" type="button" onclick="exchangeMilk()">换</button>
             <button class="btn order-btn" type="button" onclick ="returnMilk()">退</button>
-            <button class="btn order-btn" type="button" onclick="confirmGift()">确认赠品</button>
-            <button class="btn order-btn" type="button" onclick="exchangeGift()">更换赠品</button>
-            <button class="btn order-btn" type="button" onclick="instalMilkBox()">安装奶箱</button>
-            <button class="btn order-btn" type="button" onclick="returnMilkBox()">退回奶箱</button>
-            <button class="btn order-btn" type="button">应收部分退奶</button>
         </div>
         <span>&nbsp</span>
         <table class="table table-bordered table-striped">

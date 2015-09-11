@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lu.wang
-  Date: 15/3/26
-  Time: 下午4:56
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -20,18 +13,13 @@
 </head>
 <body id="login">
 <div class="container">
-
     <form class="form-signin">
-        <h2 class="form-signin-heading">管理系统</h2>
+        <h2 class="form-signin-heading">康安管理系统</h2>
         <input type="text" id="userId" class="input-block-level" placeholder="用户名">
         <input type="password" id="password" class="input-block-level" placeholder="密码">
-        <%--<label class="checkbox">
-            <input type="checkbox" value="remember-me"> 记住我测试
-        </label>--%>
         <button class="btn btn-large btn-primary" type="submit" id="loginButton">登录</button>
     </form>
-
-</div> <!-- /container -->
+</div>
 <script src="resources/js/jquery-1.9.1.min.js"></script>
 <script src="resources/js/bootstrap.min.js"></script>
 </body>

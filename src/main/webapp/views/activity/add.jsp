@@ -1,16 +1,10 @@
-<%--
-Created by IntelliJ IDEA.
-User: Administrator
-Date: 2015/5/6
-Time: 16:38
-To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
     <title>添加活动</title>
 </head>
 <body>
+
 <div id="alert"></div>
 <div class="block">
     <div class="navbar navbar-inner block-header"><input type="hidden" value="${discountID}" id="discountID"/>
@@ -217,6 +211,7 @@ To change this template use File | Settings | File Templates.
             </tbody>
         </table>
     </div>
+
 </div>
 <a href="javaScript:loadPage('activity/list')" id="GoList" style="display: none">跳转到List</a>
 

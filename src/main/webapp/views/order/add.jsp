@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: scar
-  Date: 16/4/29
-  Time: 下午2:10
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <div class="block">
     <div class="navbar navbar-inner block-header">
